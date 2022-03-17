@@ -7,61 +7,76 @@ namespace Calculator
         static void Main(string[] args)
         {
             Console.Clear();
-            Console.WriteLine("Bem vindo a Calculadora");
-            Console.WriteLine("Digite o primeiro valor: ");
+            Console.WriteLine("Bem vindo a Calculadora de 2 valores!");
+            Menu();
+        }
+        static void SairDoPrograma()
+        {
+            Console.Clear();
+            Console.WriteLine("\nObrigado por utilizar a nossa calculadora!\n");
+            System.Environment.Exit(0);
+        }
+        static void Menu()
+        {
+            Console.WriteLine("\nSelecione uma opção abaixo:\n1 - Soma\n2 - Subtração\n3 - Divisão\n4 - Multiplicação\n5 - Sair da calculadora");
+            short operation = short.Parse(Console.ReadLine());
+            switch (operation) // Switch para estruturar melhor 
+            {
+                case 1: Sum(); break;
+                case 2: Subtraction(); break;
+                case 3: Division(); break;
+                case 4: Multiplication(); break;
+                case 5: SairDoPrograma(); break;
+                default: Menu(); break;
+            }
+        }
+        static void Sum()
+        {
+            Console.Clear();
+            Console.WriteLine("\nPrimeiro valor: ");
             float value1 = float.Parse(Console.ReadLine());
-            Console.WriteLine("Digite o segundo valor: ");
+            Console.WriteLine("\nSegundo valor: ");
             float value2 = float.Parse(Console.ReadLine());
-            Console.WriteLine("Operações:\nDigite 1 para soma\nDigite 2 para subtração\nDigite 3 para divisão\nDigite 4 para multiplicação");
-            int operation = int.Parse(Console.ReadLine());
-            if (operation == 1)
-
-                Sum(value1, value2);
-
-            else if (operation == 2)
-
-                Subtraction(value1, value2);
-
-            else if (operation == 3)
-
-                Division(value1, value2);
-
-            else if (operation == 4)
-                Multiplication(value1, value2);
-            else
-                Console.WriteLine("Operação inválida!");
+            float result = value1 + value2;
+            Console.WriteLine("\nResultado da operação: " + result);
+            Console.ReadKey(); // pra não parar a execução do programa 
+            Menu();
         }
-
-        /* Será utilizado futuramente. Conforme o código for evoluindo.
-            enum ECalculations
+        static void Subtraction()
         {
-            Sum = 1,
-            Subtraction = 2,
-            Division = 3,
-
-            Multiplication = 4
+            Console.Clear();
+            Console.WriteLine("\nPrimeiro valor: ");
+            float value1 = float.Parse(Console.ReadLine());
+            Console.WriteLine("\nSegundo valor: ");
+            float value2 = float.Parse(Console.ReadLine());
+            float result = value1 - value2;
+            Console.WriteLine("\nResultado da operação: " + result);
+            Console.ReadKey();
+            Menu();
         }
-        */
-
-        static void Sum(float number1, float number2)
+        static void Division()
         {
-            float result = number1 + number2;
-            Console.WriteLine("Resultado da operação: " + result);
+            Console.Clear();
+            Console.WriteLine("\nPrimeiro valor: ");
+            float value1 = float.Parse(Console.ReadLine());
+            Console.WriteLine("\nSegundo valor: ");
+            float value2 = float.Parse(Console.ReadLine());
+            float result = value1 / value2;
+            Console.WriteLine("\nResultado da operação: " + result);
+            Console.ReadKey();
+            Menu();
         }
-        static void Subtraction(float number1, float number2)
+        static void Multiplication()
         {
-            float result = number1 - number2;
-            Console.WriteLine("Resultado da operação: " + result);
-        }
-        static void Division(float number1, float number2)
-        {
-            float result = number1 / number2;
-            Console.WriteLine("Resultado da operação: " + result);
-        }
-        static void Multiplication(float number1, float number2)
-        {
-            float result = number1 * number2;
-            Console.WriteLine("Resultado da operação: " + result);
+            Console.Clear();
+            Console.WriteLine("\nPrimeiro valor: ");
+            float value1 = float.Parse(Console.ReadLine());
+            Console.WriteLine("\nSegundo valor: ");
+            float value2 = float.Parse(Console.ReadLine());
+            float result = value1 * value2;
+            Console.WriteLine("\nResultado da operação: " + result);
+            Console.ReadKey();
+            Menu();
         }
     }
 }
